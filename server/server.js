@@ -18,7 +18,7 @@ app.use(cookieParser());
 //=======================
 
 const { User } = require("./models/user");
-
+const { Material } = require("./models/material");
 const { Brand } = require("./models/brands");
 
 //MIDDLEWARES
@@ -80,8 +80,33 @@ app.get("/api/user/logout", auth, (req, res) => {
     });
   });
 });
+
+
 //=======================
-//Brands
+//    Materials
+//=======================
+app.get("/api/product/materials",auth,admin,(req,res)=>{
+    Material.find({},(err,doc)=>{
+        if(err) return res.json({success:false, err})
+        res.status(200).json({doc})
+    })
+})
+
+app.post("/api/product/material", auth, admin, (req, res) => {
+    const material = new Material(req.body);
+    material.save((err,doc)=>{
+        if(err) return res.json({success:false, err})
+        res.status(200).json({doc})
+    })
+  })
+
+
+
+
+
+
+//=======================
+//   Brands
 //=======================
 app.post("/api/product/brands", auth, admin, (req, res) => {
   const brand = new Brand(req.body);
