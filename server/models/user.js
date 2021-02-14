@@ -24,6 +24,11 @@ const userSchema = mongoose.Schema({
         required:true,
         maxlength:100
     },
+    brandname:{
+        type:String,
+        required:true,
+        unique:1
+    },
     cart:{
         type:Array,
         default:[]
@@ -40,7 +45,7 @@ const userSchema = mongoose.Schema({
         type:String
     }
 
-})
+},{timestamps:true})
 userSchema.pre("save",function(next){
     var user = this
     if(this.isModified('password')){
