@@ -20,7 +20,7 @@ app.use(cookieParser());
 const { User } = require("./models/user");
 const { Material } = require("./models/material");
 const { Brand } = require("./models/brands");
-
+const { Product } = require("./models/product");
 //MIDDLEWARES
 
 const auth = require("./middleware/auth");
@@ -42,15 +42,20 @@ app.get("/api/user/auth", auth, (req, res) => {
 });
 app.post("/api/user/register", (req, res) => {
   const user = new User(req.body);
+  const brand = new Brand({ name: req.body.brandname });
+  brand.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+  });
   user.save((err, doc) => {
     if (err) return res.json({ success: false, err });
-
     res.status(200).json({
+        
       success: true,
       doc,
     });
   });
 });
+
 app.post("/api/user/login", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (!user)
@@ -80,40 +85,42 @@ app.get("/api/user/logout", auth, (req, res) => {
     });
   });
 });
-
+//=======================
+//    Product
+//=======================
+app.post("/api/product/asset", auth, admin, (req, res) => {
+  const product = new Product(req.body);
+  product.save((err, doc) => {
+    if (err) return res.status(400).send({ success: false, err });
+    res.status(200).send({ doc });
+  });
+});
 
 //=======================
 //    Materials
 //=======================
-app.get("/api/product/materials",auth,admin,(req,res)=>{
-    Material.find({},(err,doc)=>{
-        if(err) return res.json({success:false, err})
-        res.status(200).json({doc})
-    })
-})
+app.get("/api/product/materials", auth, admin, (req, res) => {
+  Material.find({}, (err, doc) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({ doc });
+  });
+});
 
 app.post("/api/product/material", auth, admin, (req, res) => {
-    const material = new Material(req.body);
-    material.save((err,doc)=>{
-        if(err) return res.json({success:false, err})
-        res.status(200).json({doc})
-    })
-  })
-
-
-
-
-
-
+  const material = new Material(req.body);
+  material.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({ doc });
+  });
+});
 //=======================
 //   Brands
 //=======================
 app.post("/api/product/brands", auth, admin, (req, res) => {
   const brand = new Brand(req.body);
-  brand.save((err,doc)=>{
-      if(err) return res.json({success:false, err})
-      res.status(200).json({doc})
-  })
+  brand.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+  });
 });
 
 app.listen(port, () => {
