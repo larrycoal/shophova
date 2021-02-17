@@ -49,7 +49,7 @@ app.post("/api/user/register", (req, res) => {
   user.save((err, doc) => {
     if (err) return res.json({ success: false, err });
     res.status(200).json({
-        
+
       success: true,
       doc,
     });
@@ -88,6 +88,23 @@ app.get("/api/user/logout", auth, (req, res) => {
 //=======================
 //    Product
 //=======================
+app.post("/api/product/asset_by_id",(req,res)=>{
+    let type = req.query.type
+    let items = req.query.id
+    if(type === "multiple"){
+        let ids = req.query.id.split(',')
+        items = ids.map((item)=>{
+           return mongoose.Types.ObjectId(item)
+        })    
+    }
+    Product.find({"_id":{$in:items}}).
+        populate("brand").
+        populate("material").
+        exec((err,doc)=>{
+            res.status(200).send(doc)
+        })
+
+})
 app.post("/api/product/asset", auth, admin, (req, res) => {
   const product = new Product(req.body);
   product.save((err, doc) => {
