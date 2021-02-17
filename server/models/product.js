@@ -20,7 +20,7 @@ const productSchema = mongoose.Schema({
     },
     brand:{
         type:schema.Types.ObjectId,
-        ref:"brand",
+        ref:"Brand",
         required:true
     },
     shipping:{
