@@ -6,7 +6,6 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASE);
-
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -85,10 +84,29 @@ app.get("/api/user/logout", auth, (req, res) => {
     });
   });
 });
+
+
 //=======================
 //    Product
 //=======================
-app.post("/api/product/asset_by_id",(req,res)=>{
+
+
+
+app.get("/api/product/asset",(req,res)=>{
+     let sort = req.query.sortBy ? req.query.sortBy:"_id"
+     let order = req.query.order ? req.query.order : "ASC"
+     let limit =req.query.limit ?  parseInt(req.query.limit):100
+
+     Product.find({"_id":{$in:items}}).
+     populate("brand").
+     populate("material").
+     sort([sort,order]).
+     limit(limit)
+     exec((err,doc)=>{
+         res.status(200).send(doc)
+     })
+})
+app.get("/api/product/asset_by_id",(req,res)=>{
     let type = req.query.type
     let items = req.query.id
     if(type === "multiple"){
@@ -97,7 +115,7 @@ app.post("/api/product/asset_by_id",(req,res)=>{
            return mongoose.Types.ObjectId(item)
         })    
     }
-    Product.find({"_id":{$in:items}}).
+    Product.find().
         populate("brand").
         populate("material").
         exec((err,doc)=>{
@@ -139,6 +157,15 @@ app.post("/api/product/brands", auth, admin, (req, res) => {
     if (err) return res.json({ success: false, err });
   });
 });
+
+app.get("/api/product/brands",(req,res)=>{
+  Brand.find({},(err,doc)=>{
+    if(err){
+      res.status(400)
+    }
+    res.status(200).json(doc)
+  })
+})
 
 app.listen(port, () => {
   console.log(`listening on ${port}`);
