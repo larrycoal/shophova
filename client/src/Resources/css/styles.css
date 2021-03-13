@@ -4,9 +4,6 @@ body {
     font-family: 'Oswald', sans-serif;
     color: #404040;
 }
-.header_wrapper{
-    background-color: rgb(255, 255, 255);
-}
 .header_container {
     height: 100%;
     display: flex;
@@ -26,7 +23,6 @@ body {
 .page_wrapper {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: .5fr 4fr 1fr;
 }
 .links{
     display: flex;
@@ -103,6 +99,40 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+/*============================
+            HEADER
+==============================*/
+.header_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+}
+.header_wrapper .bottom{
+    padding:2rem 0px;
+    align-items: baseline;
+}
+.header_wrapper .bottom .logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.header_wrapper.links{
+    font-weight: lighter;
+}
+
+.header_wrapper section {
+  display: flex;
+  justify-content: space-around;
+}
+.header_wrapper .top{
+    background-color: #05285B;
+    color: white;
+    padding: 10px;
+    font-weight: 200;
+}
+.header_wrapper .top span{
+    margin: 0px 10px;
+}
 /*============================
             FORM
 ==============================*/
@@ -250,9 +280,6 @@ select {
 }
 
 
-/*============================
-            HEADER
-==============================*/
 header {
     position: fixed;
     z-index: 999;
@@ -324,50 +351,21 @@ header .log_out_link {
 /*============================
             FOOTER
 ==============================*/
-
-
-
-footer .logo {
-    text-align: center;
-    font-family: 'Monoton', cursive;
-    color: #ffffff;
-    font-size: 2rem;
-    padding: 11px 0px;
-    border-bottom: 1px solid #4d4d4d;
+.footer_wrapper{
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    color: white;
+    padding: 20px 30px;
+    background-color: #05285B;
+    font-size: small;
 }
-footer .container{
-    padding:1rem 0px;
-}
-footer .wrapper {
-    display: flex;
-    color: #828282;
-    padding: 0px 3rem;
-}
-
-footer .left,
-footer .right {
-    flex: 1;
-}
-
-footer .business_nfo {
+.footer_wrapper section{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-footer .business_nfo .contain {
-    display: flex;
-    flex-direction: row;
-}
-
-footer .business_nfo .tag {
-    position: relative;
-}
-footer .business_nfo .icon {
-    position: absolute;
-    font-size: 26px;
-}
-footer .business_nfo .nfo {
-    padding-left: 40px;
+    row-gap: 20px;
+    justify-self: center;
 }
 
 
