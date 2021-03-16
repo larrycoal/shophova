@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FormField from '../misc/Form/formField'
-import {update} from '../misc/Form/utils'
+import {update,generate,isFormValid} from '../misc/Form/utils'
 
 
 
@@ -58,8 +58,17 @@ updateform = (element)=>{
 }
 
 
-submitForm = ()=>{
-
+submitForm = (e)=>{
+    e.preventDefault()
+    let data = generate(this.state.formData)
+    let formValid = isFormValid(this.state.formData)
+    if(formValid){
+   console.log(data)
+    }else{
+        this.setState({
+            formError:true
+        })
+    }
 }
 
 
@@ -81,7 +90,14 @@ submitForm = ()=>{
                change = {(element)=>this.updateform(element)}
                id="password"
               />
-              <input type="submit" name="submit" />
+              <input type="submit" name="submit" onClick={(e)=>this.submitForm(e)} />
+              {
+                  this.state.formError? (
+                      <div className="error_label">
+                          Invalid username or Password
+                      </div>
+                  ):null
+              }
             </form>
             <div>
               <span>
