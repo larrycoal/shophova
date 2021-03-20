@@ -1,4 +1,4 @@
-import {LOGIN_USER} from '../actions/types'
+import {LOGIN_USER,REGISTER_USER} from '../actions/types'
 
 const userReducer = (state = {}, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ const userReducer = (state = {}, action) => {
       return{
         ...state,
         loginSuccess:action.payload
+      }
+      case REGISTER_USER :
+      return{
+        ...state,
+        registerSuccess:action.payload
       }
     default:
       return state;

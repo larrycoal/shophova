@@ -24,11 +24,6 @@ const userSchema = mongoose.Schema({
         required:true,
         maxlength:100
     },
-    brandname:{
-        type:String,
-        required:true,
-        unique:1
-    },
     cart:{
         type:Array,
         default:[]

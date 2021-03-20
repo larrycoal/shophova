@@ -3,6 +3,7 @@ import FormField from '../misc/Form/formField'
 import {update,generate,isFormValid} from '../misc/Form/utils'
 import {connect} from 'react-redux'
 import {loginUser} from '../../Store/actions/user/user_action'
+import {Link} from 'react-router-dom'
 
 
 class Login extends Component {
@@ -103,9 +104,9 @@ submitForm = (e)=>{
               <span>
                 <a href="/">Forgot Password?</a>
               </span>
-              <span>
+              <Link to="/register">
                 <a href="/">Create An Account</a>
-              </span>
+              </Link>
             </div>
           </div>
         </div>

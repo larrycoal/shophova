@@ -41,10 +41,6 @@ app.get("/api/user/auth", auth, (req, res) => {
 });
 app.post("/api/user/register", (req, res) => {
   const user = new User(req.body);
-  const brand = new Brand({ name: req.body.brandname });
-  brand.save((err, doc) => {
-    if (err) return res.json({ success: false, err });
-  });
   user.save((err, doc) => {
     if (err) return res.json({ success: false, err });
     res.status(200).json({

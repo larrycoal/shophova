@@ -10,6 +10,11 @@ const validate = (newElement, formdata) => {
     const message = valid ? "" : "This field is required";
     error = valid ? error : [valid, message];
   }
+  if(newElement.validation.confirmpassword){
+      const valid = newElement.value === formdata[newElement.validation.ref].value
+      const message = valid ? "" : "Password Do no match";
+      error = valid ? error : [valid, message];
+  }
   return error;
 };
 
@@ -27,6 +32,10 @@ export const update = (element, formdata) => {
   newFormdata[element.id] = newElement;
   return newFormdata;
 };
+
+
+
+
 export const generate = (formdata) => {
   let datatoSubmit = {};
   for (let key in formdata) {
@@ -34,10 +43,12 @@ export const generate = (formdata) => {
   }
   return datatoSubmit;
 };
+
+
 export const isFormValid = (formdata)=>{
 
     let formvalid = true
-
+    console.log(formdata)
     for(let key in formdata){
         formvalid = formdata[key].valid  && formvalid
     }
