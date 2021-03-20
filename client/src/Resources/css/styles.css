@@ -142,7 +142,7 @@ tr:nth-child(even) {
     font-weight: lighter;
 }
 .shp_bag{
-    background-color: red;
+    background-color: #F46B01;
     padding: 10px;
     position: relative;
     border-radius: 30px;
@@ -151,11 +151,11 @@ tr:nth-child(even) {
 /*============================
             FORM
 ==============================*/
-.login_wrapper{
+.login_wrapper,.register_wrapper{
     margin: 20px;
 }
-.login_container{
-    width: 50%;
+.login_container,.register_container{
+    width: 40%;
     margin: 0 auto;
     text-align: center;
     border: 1px solid black;
@@ -168,7 +168,7 @@ tr:nth-child(even) {
 
 }
 input[type="submit"]{
-background-color: #05285B;
+background-color: #F46B01;
 color: white;
 border: none;
 }
@@ -178,7 +178,7 @@ input {
     box-sizing: border-box;
     padding: 10px 10px;
     width: 100%;
-    margin: 10px 0px 0px 0px;
+    margin: 10px 10px
 }
 
 button {
