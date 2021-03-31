@@ -38,11 +38,13 @@ export const update = (element, formdata) => {
 
 export const generate = (formdata) => {
   let datatoSubmit = {};
+  
   for (let key in formdata) {
       if(key !== "confirmpassword"){
         datatoSubmit[key] = formdata[key].value;
       }
   }
+  //console.log(datatoSubmit)
   return datatoSubmit;
 };
 
@@ -50,7 +52,6 @@ export const generate = (formdata) => {
 export const isFormValid = (formdata)=>{
 
     let formvalid = true
-    console.log(formdata)
     for(let key in formdata){
         formvalid = formdata[key].valid  && formvalid
     }

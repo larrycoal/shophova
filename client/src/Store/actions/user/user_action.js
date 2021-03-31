@@ -10,8 +10,8 @@ export const loginUser = (datatoSubmit)=>{
     }
 }
 export const registerUser = (datatoSubmit)=>{
+   
     let response = axios.post("/api/user/register",datatoSubmit).then((res)=>res.data)
-
     return {
         type:REGISTER_USER,
         payload:response
