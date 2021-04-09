@@ -1,11 +1,10 @@
 import React from "react";
 import UserLayout from "./userLayout";
+import UserDashboard from "./userDashboard"
 const userDashboard = () => {
   return(
     <UserLayout>
-       <div>
-           Dashboard
-       </div>
+           <UserDashboard/>
     </UserLayout>
   )
 };
