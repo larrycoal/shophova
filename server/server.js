@@ -13,7 +13,7 @@ app.use(bodyPaser.urlencoded({ extended: true }));
 app.use(bodyPaser.json());
 app.use(cookieParser());
 //=======================
-// models
+//-----> models
 //=======================
 
 const { User } = require("./models/user");
@@ -26,7 +26,7 @@ const auth = require("./middleware/auth");
 const admin = require("./middleware/admin");
 
 //=======================
-// USERS
+//----->  USERS
 //=======================
 app.get("/api/user/auth", auth, (req, res) => {
   res.status(200).json({
@@ -42,9 +42,10 @@ app.get("/api/user/auth", auth, (req, res) => {
 app.post("/api/user/register", (req, res) => {
   const user = new User(req.body);
   user.save((err, doc) => {
-    if (err) return res.json({ success: false, err });
+    if (err) {
+      console.log(err)
+      return res.json({ success: false, err })};
     res.status(200).json({
-
       success: true,
       doc,
     });
@@ -83,7 +84,7 @@ app.get("/api/user/logout", auth, (req, res) => {
 
 
 //=======================
-//    Product
+//----->    Product
 //=======================
 
 
@@ -128,7 +129,7 @@ app.post("/api/product/asset", auth, admin, (req, res) => {
 });
 
 //=======================
-//    Materials
+//----->    Materials
 //=======================
 app.get("/api/product/materials", auth, admin, (req, res) => {
   Material.find({}, (err, doc) => {
@@ -145,7 +146,7 @@ app.post("/api/product/material", auth, admin, (req, res) => {
   });
 });
 //=======================
-//   Brands
+//----->   Brands
 //=======================
 app.post("/api/product/brands", auth, admin, (req, res) => {
   const brand = new Brand(req.body);

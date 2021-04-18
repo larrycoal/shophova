@@ -23,6 +23,7 @@ body {
 .page_wrapper {
     min-height: 100vh;
     display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 .links{
     display: flex;
@@ -147,6 +148,43 @@ tr:nth-child(even) {
     position: relative;
     border-radius: 30px;
     color: white;
+}
+/*============================
+            UserDashboard
+==============================*/
+.dashboard_wrapper{
+    width: 80vw;
+    margin: 20px auto;
+    display: flex;
+    gap: 2rem;
+    padding: 20px;
+}
+.left_wrapper div{
+    padding: 1rem 0px;
+    border-bottom: 1px solid rgb(41, 38, 38);
+}
+.user_nfo,.user_purchase{
+    background-color: #f3ba8e;
+    padding: 20px 10px;
+    color: black;
+}
+.user_nfo div{
+   display: grid;
+   grid-template-columns: auto 1fr;
+   row-gap: 20px;
+}
+.user_nfo button{
+    border: none;
+    background-color: #06285b;
+    color: white;
+}
+.user_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.dashboard_wrapper .right_wrapper{
+    width: 100%;
 }
 /*============================
             FORM
