@@ -12,18 +12,19 @@ const LandingPage = () => {
         <img src={modelLeft} alt="model" />
         <img src={modelRight} alt="model" />
       </section>
-      <section>
+      <section className="pagination">
         <div>
-          <span>01</span>
-          <span></span>
+          <span>
+          </span>
         </div>
         <div>
-          <span>02</span>
-          <span></span>
+          <span>
+            
+          </span>
         </div>
         <div>
-          <span>03</span>
-          <span></span>
+          <span>
+          </span>
         </div>
       </section>
     </div>
