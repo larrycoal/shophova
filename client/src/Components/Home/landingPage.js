@@ -7,25 +7,16 @@ const LandingPage = () => {
     <div className="landing_wrapper">
       <section>
         <h3>Home OF Trendy Outfit</h3>
+        <p>lorem ipsum doloret</p>
       </section>
       <section className="image_wrapper">
         <img src={modelLeft} alt="model" />
         <img src={modelRight} alt="model" />
       </section>
       <section className="pagination">
-        <div>
-          <span>
-          </span>
-        </div>
-        <div>
-          <span>
-            
-          </span>
-        </div>
-        <div>
-          <span>
-          </span>
-        </div>
+        <span className="active"></span>
+        <span></span>
+        <span></span>
       </section>
     </div>
   );

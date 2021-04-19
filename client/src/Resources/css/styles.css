@@ -148,7 +148,7 @@ tr:nth-child(even) {
     background-color: #F46B01;
     padding: 10px;
     position: relative;
-    border-radius: 30px;
+    border-radius: 30%;
     color: white;
 }
 /*============================
@@ -207,6 +207,9 @@ tr:nth-child(even) {
     margin: auto;
     overflow: hidden;
 }
+.landing_wrapper section:nth-child(1){
+    align-self: flex-end;
+}
 .image_wrapper img{
     transition: transform 0.3s ease-out;
 }
@@ -227,18 +230,30 @@ tr:nth-child(even) {
     align-self: center;
     justify-self: flex-end;
 }
-.pagination div{
+.pagination .active{
+    background-color: #f8f7f7;
+
+}
+.pagination span{
     display: flex;
     margin: 20px 0px;
-}
-.pagination div span:nth-child(1){
     height: 30px;
     width: 30px;
     background-color: #f46b03;
     border-radius: 50%;
+    cursor: pointer;
 }
-.pagination svg{
-    fill: blue;
+.pagination span:hover{
+    animation: bounce 0.5s ease-in-out infinite alternate;
+
+}
+@keyframes bounce {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(2);
+    }
 }
 /*============================
             FORM
