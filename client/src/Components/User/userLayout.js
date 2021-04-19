@@ -16,9 +16,9 @@ const links = [
 ];
 const userLayout = (props) => {
   const generateLinks = (links) =>
-    links.map((link) => (
+    links.map((link,i) => (
       <div>
-        <Link to={link.linkTo}>{link.name}</Link>
+        <Link to={link.linkTo} key={i}>{link.name}</Link>
       </div>
     ));
   return (

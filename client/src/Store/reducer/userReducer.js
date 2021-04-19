@@ -1,4 +1,4 @@
-import {LOGIN_USER,REGISTER_USER,AUTH_USER} from '../actions/types'
+import {LOGIN_USER,REGISTER_USER,AUTH_USER,LOGOUT_USER} from '../actions/types'
 
 const userReducer = (state = {}, action) => {
   switch (action.type) {
@@ -14,6 +14,10 @@ const userReducer = (state = {}, action) => {
       }
       case AUTH_USER :
         return{...state,userData:action.payload}
+        case LOGOUT_USER:
+          return{
+            ...state
+          }
     default:
       return state;
   }

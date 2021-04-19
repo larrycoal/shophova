@@ -1,9 +1,9 @@
 import React from 'react';
-
+import LandingPage from './landingPage'
 const Home = () => {
     return (
-        <div style={{minHeight:"1100px"}}>
-            Home
+        <div >
+            <LandingPage/>
         </div>
     );
 };
