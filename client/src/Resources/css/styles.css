@@ -19,7 +19,9 @@ body {
     text-align: center;
     margin-top: 100px;
 }
-
+.logout{
+    cursor: pointer;
+}
 .page_wrapper {
     min-height: 100vh;
     display: grid;
@@ -159,12 +161,15 @@ tr:nth-child(even) {
     gap: 2rem;
     padding: 20px;
 }
+.left_wrapper{
+    width: 200px;
+}
 .left_wrapper div{
     padding: 1rem 0px;
     border-bottom: 1px solid rgb(41, 38, 38);
 }
 .user_nfo,.user_purchase{
-    background-color: #f3ba8e;
+    background-color: #f3eeeb;
     padding: 20px 10px;
     color: black;
 }
@@ -185,6 +190,22 @@ tr:nth-child(even) {
 }
 .dashboard_wrapper .right_wrapper{
     width: 100%;
+}
+/*============================
+            Home
+==============================*/
+.landing_wrapper{
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    height: 90vh;
+}
+.landing_wrapper .image_wrapper{
+    display: flex;
+    height: 500px;
+    width: 400px;
+}
+.landing_wrapper section:nth-child(1){
+    grid-column: 2/3;
 }
 /*============================
             FORM

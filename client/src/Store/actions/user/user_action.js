@@ -1,4 +1,4 @@
-import {LOGIN_USER,REGISTER_USER,AUTH_USER} from '../types'
+import {LOGIN_USER,REGISTER_USER,AUTH_USER,LOGOUT_USER} from '../types'
 import axios from 'axios'
 
  const UserServer = "/api/user"
@@ -7,6 +7,13 @@ export const loginUser = (datatoSubmit)=>{
 
     return {
         type:LOGIN_USER,
+        payload:response
+    }
+}
+export const logoutUser = ()=>{
+    let response = axios.get(`${UserServer}/logout`).then((res)=>res.data)
+    return {
+        type:LOGOUT_USER,
         payload:response
     }
 }
