@@ -212,6 +212,10 @@ tr:nth-child(even) {
 }
 .landing_wrapper section:nth-child(1){
     align-self: flex-end;
+    margin: 20px 0px;
+}
+.landing_wrapper section:nth-child(1) p{
+   width: 300px;
 }
 .image_wrapper img{
     transition: transform 0.3s ease-out;
