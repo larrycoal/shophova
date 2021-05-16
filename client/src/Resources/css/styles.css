@@ -128,7 +128,7 @@ tr:nth-child(even) {
   justify-content: space-around;
 }
 .header_wrapper .top{
-    background-color: #F545AF;
+    background-color: #5153c4;
     color: white;
     padding: 10px;
     font-weight: 200;
@@ -198,6 +198,7 @@ tr:nth-child(even) {
     display: grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
     height: 85vh;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 .image_wrapper{
     height: fit-content;
@@ -210,12 +211,26 @@ tr:nth-child(even) {
     overflow: hidden;
     position: absolute;
 }
-.landing_wrapper section:nth-child(1){
+.landing_wrapper .aboutText{
     align-self: flex-end;
     margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
 }
-.landing_wrapper section:nth-child(1) p{
+.landing_wrapper .aboutText p{
    width: 300px;
+   font-size: small;
+   line-height: 20px;
+}
+.aboutText div:nth-child(1){
+    flex-grow: 1;
+}
+.aboutText div:nth-child(2){
+    height: 300px;
+    margin-bottom: 30px;
+    background-image: url('../../images/clipart/landingPageclip.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .image_wrapper img{
     transition: transform 0.3s ease-out;
@@ -243,6 +258,16 @@ tr:nth-child(even) {
 .pagination .active{
     opacity: 1;
 
+}
+.pagination div:nth-child(1){
+    position: absolute;
+    overflow: hidden;
+    bottom: 5%;
+    left: 66%;
+}
+.pagination img{
+    height: 300px;
+    width: 300px;
 }
 .pagination span{
     display: flex;

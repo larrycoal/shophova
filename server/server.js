@@ -43,7 +43,6 @@ app.post("/api/user/register", (req, res) => {
   const user = new User(req.body);
   user.save((err, doc) => {
     if (err) {
-      console.log(err)
       return res.json({ success: false, err })};
     res.status(200).json({
       success: true,
@@ -98,7 +97,7 @@ app.get("/api/product/asset",(req,res)=>{
      populate("brand").
      populate("material").
      sort([sort,order]).
-     limit(limit)
+     limit(limit).
      exec((err,doc)=>{
          res.status(200).send(doc)
      })
